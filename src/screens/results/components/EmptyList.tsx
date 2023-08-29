@@ -4,7 +4,7 @@ import React from 'react';
 export const EmptyList = () => {
   return (
     <View>
-      <Text>no results...</Text>
+      <Text>No results...</Text>
     </View>
   );
 };

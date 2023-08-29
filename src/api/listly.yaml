@@ -41,12 +41,44 @@ paths:
 components:
   schemas:
     ImageCollection:
-      type: array
-      items:
-        $ref: '#/components/schemas/Image'
+      type: object
+      required:
+        - meta
+        - results
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
 
+    Meta:
+      type: object
+      required:
+        - count
+        - q
+        - totalCount
+        - type
+      properties:
+        count:
+          type: number
+        q:
+          type: string
+        totalCount:
+          type: number
+        type:
+          type: string
     Image:
       type: object
+      required:
+        - image
+        - preview_image
+        - tags
+        - url
+        - media_id
+        - media_source
+        - media_type
       properties:
         name:
           type: string

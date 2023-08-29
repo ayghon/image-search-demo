@@ -4,6 +4,10 @@
  * Listly API v4
  * OpenAPI spec version: 1.0.0
  */
+import type {Meta} from './meta';
 import type {Image} from './image';
 
-export type ImageCollection = Image[];
+export interface ImageCollection {
+  meta: Meta;
+  results: Image[];
+}

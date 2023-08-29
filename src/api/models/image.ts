@@ -8,11 +8,11 @@
 export interface Image {
   name?: string;
   description?: string;
-  image?: string;
-  preview_image?: string;
-  tags?: string[];
-  url?: string;
-  media_type?: string;
-  media_source?: string;
-  media_id?: number;
+  image: string;
+  preview_image: string;
+  tags: string[];
+  url: string;
+  media_type: string;
+  media_source: string;
+  media_id: number;
 }

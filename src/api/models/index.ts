@@ -8,3 +8,4 @@
 export * from './findImagesParams';
 export * from './image';
 export * from './imageCollection';
+export * from './meta';

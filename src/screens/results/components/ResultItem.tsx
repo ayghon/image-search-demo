@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
 import {Image} from '../../../api';
-import {Button, Image as RNImage, View} from 'react-native';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 import {useLikesStore} from '../../../stores/likes.store';
+import {LikeButton} from '../../../components/LikeButton';
 
 type ResultItemProps = {item: Image};
 
@@ -24,15 +25,19 @@ export const ResultItem: FC<ResultItemProps> = ({
         height: 240,
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: isItemLiked ? 'yellow' : undefined,
       }}>
-      <RNImage
-        source={{uri: image, height: 200}}
+      <ImageBackground
+        source={{uri: image}}
+        style={styles.image}
         defaultSource={require('../../../../assets/placeholder.png')}
         alt={tags.toString()}
-        resizeMode="cover"
-      />
-      {!isItemLiked && <Button title="Like" onPress={pressHandler} />}
+        resizeMode="cover">
+        <LikeButton onPress={pressHandler} liked={isItemLiked} />
+      </ImageBackground>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {height: 200},
+});

@@ -1,10 +1,12 @@
-import {Button, KeyboardAvoidingView, Platform, StyleSheet} from 'react-native';
+import {KeyboardAvoidingView, Platform, StyleSheet, View} from 'react-native';
 import React, {FC} from 'react';
 import {Routes, ScreenProps} from '../../types/routes';
 import {FormProvider, SubmitHandler, useForm} from 'react-hook-form';
 import {TextFieldControlled} from '../components/TextFieldControlled';
 import * as Yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
+import {Button} from '../components/Button';
+import {commonStyles} from '../styles/common.styles';
 
 type SearchFormValues = {
   q: string;
@@ -33,20 +35,24 @@ export const HomeScreen: FC<ScreenProps<Routes.Home>> = ({
       <KeyboardAvoidingView
         behavior={Platform.select({android: undefined, ios: 'padding'})}
         keyboardVerticalOffset={100}
-        style={styles.container}>
+        style={commonStyles.container}>
         <TextFieldControlled
           name="q"
           label="Search term"
           placeholder="Search images on listly"
         />
-        <Button title="Search" onPress={methods.handleSubmit(goToResults)} />
+        <View style={styles.submitSection}>
+          <Button onPress={methods.handleSubmit(goToResults)}>Search</Button>
+        </View>
       </KeyboardAvoidingView>
     </FormProvider>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  submitSection: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

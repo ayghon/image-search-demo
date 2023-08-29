@@ -7,6 +7,7 @@ import {useGetResults} from './results.utils';
 import {ListFooter} from './components/ListFooter';
 import {EmptyList} from './components/EmptyList';
 import {ResultItem} from './components/ResultItem';
+import {commonStyles} from '../../styles/common.styles';
 
 export const ResultsScreen: FC<ScreenProps<Routes.Results>> = ({
   route: {
@@ -21,7 +22,7 @@ export const ResultsScreen: FC<ScreenProps<Routes.Results>> = ({
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={commonStyles.container}>
       <Text>
         Results for {q}: {data?.meta.totalCount}
       </Text>

@@ -17,7 +17,9 @@ function App(): JSX.Element {
       <NavigationContainer>
         <ScreenContainer>
           <RootStack.Navigator
-            screenOptions={{contentStyle: {padding: 20}}}
+            screenOptions={{
+              contentStyle: {padding: 20},
+            }}
             initialRouteName={Routes.Home}>
             <RootStack.Screen
               name={Routes.Home}
@@ -26,7 +28,9 @@ function App(): JSX.Element {
             />
             <RootStack.Screen
               name={Routes.Results}
-              options={{headerTitle: 'Results'}}
+              options={{
+                headerTitle: 'Results',
+              }}
               component={ResultsScreen}
             />
           </RootStack.Navigator>

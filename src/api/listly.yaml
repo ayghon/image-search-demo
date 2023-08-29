@@ -1,0 +1,71 @@
+openapi: '3.0.3'
+info:
+  title: 'Listly API v4'
+  version: '1.0.0'
+servers:
+  - url: https://list.ly/api/v4
+paths:
+  /search/image:
+    get:
+      tags:
+        - image
+      operationId: findImages
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            default: 1
+            type: number
+        - name: per_page
+          in: query
+          required: false
+          schema:
+            default: 25
+            type: number
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageCollection'
+        '400':
+          description: Invalid search term
+
+components:
+  schemas:
+    ImageCollection:
+      type: array
+      items:
+        $ref: '#/components/schemas/Image'
+
+    Image:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        preview_image:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        url:
+          type: string
+        media_type:
+          type: string
+        media_source:
+          type: string
+        media_id:
+          type: number
+          format: int32

@@ -24,7 +24,7 @@ export const ResultsScreen: FC<ScreenProps<Routes.Results>> = ({
   return (
     <View style={commonStyles.container}>
       <Text>
-        Results for {q}: {data?.meta.totalCount}
+        Results for {q}: {data?.meta.totalCount || 0}
       </Text>
       <FlashList<Image>
         refreshing={isFetching}

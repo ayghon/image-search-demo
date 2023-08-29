@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList, Routes} from './types/routes';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import {HomeScreen} from './src/screens/HomeScreen';
+import {HomeScreen} from './src/screens/home/HomeScreen';
 import {ResultsScreen} from './src/screens/results/ResultsScreen';
 import {ScreenContainer} from './src/components/ScreenContainer';
 

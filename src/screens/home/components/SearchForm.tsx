@@ -1,12 +1,13 @@
 import {KeyboardAvoidingView, Platform, StyleSheet, View} from 'react-native';
-import React, {FC} from 'react';
-import {Routes, ScreenProps} from '../../types/routes';
+import {commonStyles} from '../../../styles/common.styles';
+import {TextFieldControlled} from '../../../components/TextFieldControlled';
+import {Button} from '../../../components/Button';
 import {FormProvider, SubmitHandler, useForm} from 'react-hook-form';
-import {TextFieldControlled} from '../components/TextFieldControlled';
-import * as Yup from 'yup';
+import React from 'react';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {Button} from '../components/Button';
-import {commonStyles} from '../styles/common.styles';
+import {Routes, UseNavigationProps} from '../../../../types/routes';
+import * as Yup from 'yup';
+import {useNavigation} from '@react-navigation/native';
 
 type SearchFormValues = {
   q: string;
@@ -16,9 +17,9 @@ const searchValidationSchema = Yup.object().shape({
   q: Yup.string().required(),
 });
 
-export const HomeScreen: FC<ScreenProps<Routes.Home>> = ({
-  navigation: {navigate},
-}) => {
+export const SearchForm = () => {
+  const {navigate} = useNavigation<UseNavigationProps>();
+
   const methods = useForm<SearchFormValues>({
     mode: 'all',
     criteriaMode: 'all',

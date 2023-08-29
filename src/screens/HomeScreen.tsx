@@ -1,4 +1,4 @@
-import {Button, View} from 'react-native';
+import {Button, KeyboardAvoidingView, Platform, StyleSheet} from 'react-native';
 import React, {FC} from 'react';
 import {Routes, ScreenProps} from '../../types/routes';
 import {FormProvider, SubmitHandler, useForm} from 'react-hook-form';
@@ -29,15 +29,24 @@ export const HomeScreen: FC<ScreenProps<Routes.Home>> = ({
   };
 
   return (
-    <View>
-      <FormProvider {...methods}>
+    <FormProvider {...methods}>
+      <KeyboardAvoidingView
+        behavior={Platform.select({android: undefined, ios: 'padding'})}
+        keyboardVerticalOffset={100}
+        style={styles.container}>
         <TextFieldControlled
           name="q"
           label="Search term"
           placeholder="Search images on listly"
         />
         <Button title="Search" onPress={methods.handleSubmit(goToResults)} />
-      </FormProvider>
-    </View>
+      </KeyboardAvoidingView>
+    </FormProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

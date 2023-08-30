@@ -20,6 +20,7 @@ export const TextFieldControlled: FC<TextFieldControlledProps> = ({
 
   return (
     <TextField
+      testID={name}
       label={label}
       placeholder={placeholder}
       error={error?.message}

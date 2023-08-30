@@ -59,6 +59,15 @@ In the Results screen:
 - You can pull to refresh results
 - You can like images by pressing on the top right button of each image
 
+## Step 4: Run tests
+
+I used Detox to create a simple e2e test testing:
+
+- First screen is Home
+- Can enter a value in a field and search images
+- Can handle field validation for search field
+- Can like images
+
 # Learn More
 
 App built with:

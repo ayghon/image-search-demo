@@ -32,7 +32,11 @@ describe('Search Demo', () => {
     await element(by.text('Search')).tap();
 
     await element(by.text('Like')).atIndex(0).tap();
-    await element(by.text('Home')).tap();
+    if (device.getPlatform() === 'android') {
+      await device.pressBack();
+    } else {
+      await element(by.text('Home')).tap();
+    }
 
     await expect(element(by.text('Likes: 1'))).toBeVisible();
   });

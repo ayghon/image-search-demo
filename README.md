@@ -68,6 +68,10 @@ I used Detox to create a simple e2e test testing:
 - Can handle field validation for search field
 - Can like images
 
+> For Android, use this emulator: `Pixel_6_Pro_API_33`
+
+> For iOS, use this simulator: `iPhone 14`
+
 # Learn More
 
 App built with:
@@ -79,3 +83,4 @@ App built with:
 - [React Navigation](https://reactnavigation.org/)
 - [Nanostores](https://github.com/nanostores/nanostores)
 - [Listly API v4](https://list.ly/api/docs#meta-search-search-images)
+- [Detox](https://wix.github.io/Detox/docs/introduction/getting-started)
